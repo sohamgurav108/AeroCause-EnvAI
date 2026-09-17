@@ -1,106 +1,284 @@
-# AI-Powered Root Cause Analyzer for Cloud Failures 🚀
+# 🌍 AeroCause
+## AI-Powered Root Cause & Response Engine for Environmental Anomalies
 
-An automated cloud incident investigation system that ingests distributed AWS operational logs, correlates timeline anomalies, and leverages AI/LLMs to diagnose root causes and generate mitigation reports in minutes.
-
----
-
-## 📌 Problem Overview & Solution
-* **The Problem:** When cloud applications experience outages, DevOps engineers manually parse thousands of logs across multiple AWS services (EC2, RDS, ALB, Lambda), taking 30 to 90 minutes to diagnose the underlying failure.
-* **The Solution:** Automates cross-service log correlation and AI-driven root cause identification, shrinking Mean Time To Resolution (MTTR) down to 2–5 minutes with an actionable incident report and visual timeline.
+> Transforming environmental alerts into explained, actionable intelligence using AI.
 
 ---
 
-## 🏗️ Architecture & Data Pipeline
+## 📌 Overview
 
+AeroCause is an AI-powered environmental incident intelligence platform designed to help environmental agencies, disaster-response teams, researchers, and local authorities understand environmental anomalies faster.
+
+Traditional monitoring systems can detect abnormal events such as air-quality spikes, water contamination, unusual weather patterns, or sensor anomalies. However, they often fail to explain:
+
+- Why the anomaly occurred
+- How the event evolved
+- What actions should be taken next
+
+AeroCause bridges this gap by combining anomaly detection, root-cause analysis, timeline reconstruction, and AI-generated response recommendations into a single platform.
+
+---
+
+## 🎯 Problem Statement
+
+Environmental monitoring systems are excellent at raising alerts when a metric crosses a threshold, but they rarely explain the cause behind the event.
+
+As a result:
+
+- Root-cause investigations are manual and time-consuming
+- Environmental experts spend hours analyzing historical data
+- Critical response time is lost during incidents
+- Smaller agencies often lack dedicated analysis teams
+
+AeroCause converts environmental alerts into explained, actionable insights within minutes.
+
+---
+
+## 🚀 Objectives
+
+### 1. Detect
+Continuously monitor environmental data streams and identify anomalies in near real-time.
+
+### 2. Diagnose
+Use AI to analyze historical context and reconstruct the likely root cause.
+
+### 3. Recommend
+Generate actionable response recommendations based on detected events.
+
+### 4. Scale
+Provide a domain-agnostic platform that can work across multiple environmental monitoring systems.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+Environmental Sensors
+(Air • Water • Weather • Satellite Data)
+                    │
+                    ▼
+        Data Ingestion Layer
+           (Spring Boot APIs)
+                    │
+                    ▼
+         Anomaly Detection Engine
+                    │
+                    ▼
+          AI Reasoning Engine
+            (LLM-Based Analysis)
+                    │
+                    ▼
+        Timeline Reconstruction
+                    │
+                    ▼
+         Root Cause Diagnosis
+                    │
+                    ▼
+     Response Recommendation Engine
+                    │
+                    ▼
+            React Dashboard
 ```
-AWS Cloud (EC2/RDS/ALB) ──> CloudWatch/CloudTrail ──> Spring Boot Backend ──> AI Engine (LLM) ──> MySQL Database ──> React Dashboard
-   (Generates Logs)              (Ingests)              (Cleans & Prepares)       (Analyzes)            (Persists)          (Visualizes)
+
+---
+
+## 🤖 Where AI Is Used
+
+### AI Layer 1 – Anomaly Detection
+
+- Detect abnormal readings
+- Compare current readings with historical baselines
+- Identify unusual environmental patterns
+
+### AI Layer 2 – Root Cause Analysis
+
+- Analyze anomaly context
+- Correlate historical events
+- Explain probable causes in natural language
+
+### AI Layer 3 – Response Recommendation
+
+- Generate situation-specific actions
+- Assist agencies in faster decision-making
+- Improve incident response efficiency
+
+---
+
+## ✨ Unique Features
+
+### 🔍 Explains, Not Just Predicts
+
+Most monitoring systems only detect anomalies.
+
+AeroCause explains:
+
+- What happened
+- Why it happened
+- What should happen next
+
+---
+
+### 📈 Timeline Reconstruction
+
+Reconstructs how an anomaly evolved over time instead of showing only a single alert.
+
+---
+
+### 🌐 Domain-Agnostic Architecture
+
+The same AI pipeline can be applied to:
+
+- Air Quality Monitoring
+- Water Quality Monitoring
+- Weather Monitoring
+- Flood Monitoring
+- Wildfire Monitoring
+- Smart City Sensor Networks
+
+---
+
+### ✅ Proven Architecture
+
+Built on a validated AI root-cause analysis workflow that can be extended to environmental use cases.
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+- Java
+- Spring Boot
+- REST APIs
+
+### Frontend
+
+- React.js
+
+### Database
+
+- MySQL
+
+### AI Layer
+
+- OpenRouter
+- GPT-Class Models
+- LLM Reasoning Engine
+
+### Cloud
+
+- AWS
+
+### Development Tools
+
+- Git
+- GitHub
+- VS Code
+
+---
+
+## 📂 Repository Structure
+
+```text
+AeroCause/
+│
+├── Backend/
+│   ├── Controllers
+│   ├── Services
+│   ├── Models
+│   └── APIs
+│
+├── Frontend/
+│   ├── Components
+│   ├── Pages
+│   └── Dashboard UI
+│
+├── aws-setup/
+│
+├── testing/
+│
+└── README.md
 ```
 
+---
 
-1. **AWS Ingestion:** Infrastructure logs and telemetry metrics stream via AWS CloudWatch and CloudTrail.
-2. **Backend Processing:** Spring Boot ingests, normalizes, and structures event payloads.
-3. **AI Root-Cause Inference:** An LLM correlates multi-service log sequences, extracts root causes, and generates remediation recommendations.
-4. **Relational Storage:** Incidents, event timelines, and diagnostic reports persist in MySQL via Spring Data JPA.
-5. **Dashboard Visualization:** React.js renders interactive incident overviews, chronological timeline graphs, and remediation steps.
+## 📊 Expected Outcomes
+
+### Deliverables
+
+- Environmental Monitoring Dashboard
+- Anomaly Detection Engine
+- Root Cause Analysis Engine
+- AI Recommendation Engine
+- Incident History Database
+- Timeline Reconstruction System
+
+### Short-Term Impact
+
+- Faster incident understanding
+- Reduced manual investigation effort
+- Improved decision-making
+
+### Long-Term Impact
+
+- Creation of environmental incident knowledge base
+- Improved sustainability monitoring
+- Foundation for predictive environmental intelligence
 
 ---
 
-## 🛠️ Tech Stack & Module Ownership
+## 🌱 United Nations SDG Alignment
 
-| Domain / Layer | Technology | Lead / Contributor | Responsibilities |
-| :--- | :--- | :--- | :--- |
-| **Backend Architecture** | Java 21, Spring Boot, REST APIs | **Divyanshu** (Team Lead) | Core API design, service orchestration, GitHub management |
-| **Cloud Infrastructure** | AWS (EC2, RDS, ALB, CloudWatch) | **Sakshi** | Cloud resources, telemetry pipelines, failure simulations |
-| **AI Intelligence** | OpenAI / OpenRouter API | **Soham** | Prompt engineering, raw log preprocessing, JSON schema parsing |
-| **Database Design** | MySQL, Spring Data JPA | **Ketaki** | ER modeling, JPA entities, database optimization |
-| **Frontend UI** | React.js, Tailwind CSS, Chart.js | **Krutant** | Incident dashboard, chronological timeline, metric visualizers |
-| **QA & Documentation** | Postman, Markdown, Automated QA | **Malhar** | Test automation, failure datasets, defect logging, documentation |
+This project directly contributes to:
+
+### SDG 13 – Climate Action
+
+By helping environmental agencies identify, understand, and respond to environmental anomalies more effectively.
 
 ---
 
-## 📡 REST API Specifications
+## 👥 Target Beneficiaries
 
-**Base URL:** `http://localhost:8081`
-
-| Method | Endpoint | Description | Status |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/analyze` | Ingests cloud log batches and generates AI incident analysis | AI Integration Pending |
-| `GET` | `/api/incidents` | Retrieves all historical incident summaries from MySQL/RDS | Active / Ready |
-| `GET` | `/api/incidents/{id}` | Fetches individual incident details and metadata | Active / Ready |
-| `GET` | `/api/reports/{id}` | Fetches generated root-cause reports, timelines, and recommendations | Active / Ready |
-| `POST` | `/api/logs` | Ingests raw AWS CloudWatch / CloudTrail telemetry | Active / Ready |
+- Environmental Agencies
+- Municipal Authorities
+- Disaster Response Teams
+- Public Health Departments
+- Researchers
+- Citizens in Affected Areas
 
 ---
 
-## 🚀 Getting Started & Local Setup
+## 📈 Future Scope
 
-### Prerequisites
-* **Java:** JDK 21 installed (`java -version`)
-* **Node.js:** Node v18+ & npm v9+ (`node -v`)
-* **Database:** MySQL 8.0+ or connection credentials for AWS RDS
-
-### Backend Setup (Spring Boot)
-1. Navigate to the backend directory:
-   ```bash
-   cd Backend
-   ```
-2. Verify database connection credentials in `src/main/resources/application.yml` (pointing to Sakshi's AWS RDS instance).
-3. Run the Spring Boot application:
-   ```powershell
-   ./mvnw.cmd spring-boot:run
-   ```
-4. The service will be operational on `http://localhost:8081`.
-
-### Frontend Setup (React.js)
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install project dependencies:
-   ```bash
-   npm install
-   ```
-3. Launch the dashboard server:
-   ```bash
-   npm start
-   ```
-4. Access the dashboard UI at `http://localhost:3000`.
+- Integration with Government Open Data APIs
+- Flood Prediction Systems
+- Wildfire Monitoring Systems
+- Multi-language Incident Reports
+- Predictive Environmental Alerts
+- Real-Time Satellite Data Integration
 
 ---
 
-## 🧪 Testing & Quality Assurance
-* **Postman Test Suite:** Complete API assertion scripts and collections reside under `testing/`.
-* **Simulated Cloud Datasets:** Standardized failure payloads (RDS pool exhaustion, Lambda timeout, EC2 OOM) are documented in `testing/test-failure-datasets.json`.
-* **Defect Log:** Historical bug tracking is maintained in `testing/bug-tracker.md`.
+## 🏆 Competition Information
 
-## AI Layer Setup (OpenRouter)
+**Project Name:** AeroCause
 
-The AI Layer uses OpenRouter to generate root-cause analysis. To run it locally:
+**Theme:** AI for Climate Action
 
-1. Create `Backend/src/main/resources/application-local.properties` (this file is gitignored — you must create it yourself).
-2. Add the following line:
+**Competition:** PCCOE International Grand Challenge 2026
 
-openai.api.key=YOUR_KEY_HERE
+**SDG Focus:** SDG 13 – Climate Action
 
-3. Contact Divyanshu to get the shared OpenRouter key.
+---
+
+## 📜 License
+
+This project is developed for academic research, innovation challenges, and environmental sustainability applications.
+
+---
+
+## ⭐ Vision
+
+**From Alert → Understanding → Action**
+
+AeroCause transforms environmental anomaly detection into intelligent, explainable, and actionable decision support for a more sustainable future.
